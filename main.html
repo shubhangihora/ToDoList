@@ -12,13 +12,23 @@
       <h4>Completed Tasks: {{ comp }}</h4>
       <h4>Uncompleted Tasks: {{ uncomp }}</h4>
       </div>
+      <form id="det">
+        Task Name: <input type="text" name="tname">
+        <input type="button" onclick="submit()" value="Submit">
+      </form>
       <script>
       new Vue({
         el: '#app',
         data:{
           comp: 0,
           uncomp: 0
-        }
+        },
+        methods:{
+          submit: function(){
+            document.getElementById("det").submit();
+          }
+          }
+
       })
       </script>
   </body>
