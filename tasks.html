@@ -3,27 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script src="vue.js"></script>
   </head>
   <body>
-    <div id="task-form">
+    <div id="app">
       <form>
-        Task Name: <input placeholder="enter the name" v-model="taskName"></br>
-        Task Description: <input placeholder="enter the description" v-model="taskDesc"></br>
-        Task Deadline: <input placeholder="enter the deadline" v-model="deadline"></br>
-        <button @click="addTask()">Submit</button>
+        Task Name: <input placeholder="enter the name" v-model="task.taskName"></br>
+        Task Description: <input placeholder="enter the description" v-model="task.taskDesc"></br>
+        Task Deadline: <input placeholder="enter the deadline" v-model="task.deadline"></br>
+        <button @click="addTask" type='button'>Submit</button>
       </form>
+      <ul>
+
+        <li v-for="task in tasks">
+          {{ task.taskName }}  {{ task.taskDesc }}  {{ task.deadline }}
+      </li>
+    </ul>
+      
+
     </div>
-    Tasks
-    <ul>
-      <li> <a v-for= "task in tasks">
-        Task Name: {{ taskName }}
-        Task Description: {{ taskDesc }}
-        Task Deadline: {{ deadline }}
-      </a>
-    </li>
-  </ul>
+
 </div>
-<script src="vue.js"></script>
-<script src="trying.js"></script>
+<script src="tasks.js"></script>
   </body>
 </html>
