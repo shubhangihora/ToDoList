@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="task-form">
+      <form>
+        Task Name: <input placeholder="enter the name" v-model="taskName"></br>
+        Task Description: <input placeholder="enter the description" v-model="taskDesc"></br>
+        Task Deadline: <input placeholder="enter the deadline" v-model="deadline"></br>
+        <button @click="addTask()">Submit</button>
+      </form>
+    </div>
+    Tasks
+    <ul>
+      <li> <a v-for= "task in tasks">
+        Task Name: {{ taskName }}
+        Task Description: {{ taskDesc }}
+        Task Deadline: {{ deadline }}
+      </a>
+    </li>
+  </ul>
+</div>
+<script src="vue.js"></script>
+<script src="trying.js"></script>
+  </body>
+</html>
