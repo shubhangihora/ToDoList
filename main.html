@@ -2,37 +2,80 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <script src=vue.js></script>
-    <title></title>
+    <script src="vue.js"></script>
+    <title>To Do List</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+    body {
+      background-color: lightblue;
+    }
+
+    </style>
   </head>
   <body>
     <div id="app">
-      <h1>To Do List</h1>
-      <h3>Enter things you need to do below!</h3>
-      <h4>Completed Tasks: {{ comp }}</h4>
-      <h4>Uncompleted Tasks: {{ uncomp }}</h4>
+      <h1>Welcome to your To Do List!</h1>
+      <h3>Please enter the things you need to do below!</h3>
+      <h2><div class="form-group">
+        <input class="form-control" placeholder="Task Name" v-model="task.name">
       </div>
-      <form id="det">
-        Task Name: <input type="text" name="tname"><br>
-        Task Description: <input type="text" name="tdesc"><br>
-        Deadline: <input type="text" name="tdead"><br>
-        Reminder: <input type="checkbox" name="trem"><br>
-        <input type="button" onclick="submit()" value="Submit">
-      </form>
+
+      <div class="form-group">
+        <textarea class="form-control" placeholder="Task Description" v-model="task.desc"></textarea>
+      </div>
+
+      <div class="form-group">
+        <input type="date" class="form-control" placeholder="Deadline" v-model="task.deadline">
+      </div>
+      <input type="button" onclick="addTask()" value="Submit">
+      <a href="#" class="list-group-item" v-repeat="tasks in task">
+        <h4 class="list-group-item-heading">
+          <i class="glyphicon glyphicon-bullhorn"></i>
+          {{ task.name }}
+        </h4>
+
+        <h5>
+          <i class="glyphicon glyphicon-calendar" v-if="task.deadline"></i>
+          {{ task.deadline }}
+        </h5>
+
+        <p class="list-group-item-text" v-if="task.description">{{ task.desc }}</p>
+    </div>
+
+
       <script>
+      var timeoutID;
       new Vue({
         el: '#app',
         data:{
-          comp: 0,
-          uncomp: 0
+          task: {name: '', desc: '', deadline: ''},
+          tasks:[],
         },
-        methods:{
-          submit: function(){
-            document.getElementById("det").submit();
-          }
-          }
+        ready: function(){
+          this.fetchEvents();
+        }
 
+        methods:{
+          fetchEvents: function(){
+          var tasks = [
+          {
+            id: 1,
+            name: 'Software Engg Final Eval',
+            description: '60 mark submission',
+            date: '2015-09-10'
+        }];
+        this.$set('tasks', tasks);
+      },
+      addTask: function() {
+        if(this.task.name) {
+          this.tasks.push(this.task);
+          this.task = { name: '', description: '', date: '' };
+        }
+        }
+      }
       })
       </script>
+      <script src="node_modules/vue/dist/vue.js"></script>
+      <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
   </body>
 </html>
