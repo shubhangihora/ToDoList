@@ -6,23 +6,18 @@ new Vue ({
     task: { taskName: '', taskDesc: '', deadline: ''},
 
     tasks: [
-      {taskName: "submit git code", taskDesc: "git push test for Final Eval Component", deadline: "11.12.2016"},
-        {taskName: "Do the web page", taskDesc: "create the design for web page", deadline: "11.12.2016"}
+      {taskName: "SoftwareEngg", taskDesc: "Final Eval Submission", deadline: "12.12.2016"},
+        {taskName: "New Girl!", taskDesc: "Watch the latest episode!!", deadline: "ASAP"}
   ]},
-
   methods:
     {
     addTask: function(){
-    //  alert("hello " + this.task.taskName + " " + this.task.taskDesc + " " + this.task.deadline);
+     // alert("hello " + this.task.taskName + " " + this.task.taskDesc + " " + this.task.deadline);
       this.tasks.push(this.task);
       this.task = { taskName: '', taskDesc: '', deadline: ''};
     },
     alertOne: function(){
-      timeoutID = window.setTimeout(slowAlert, 2000);
-    },
-    slowAlert: function(){
-      alert("Reminder for this.task.taskName");
+      alert("Reminder for " + this.task.taskName);
     }
   }
-
 })
