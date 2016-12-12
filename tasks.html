@@ -3,7 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>To Do List!</title>
-    <script src="vue.js"></script>
+        <script src="vue.js"></script>
+        <style>
+        body{
+              background-image: url("http://www.timvandevall.com/wp-content/uploads/2013/10/Printable-Notebook-Paper-04.jpg");
+              color: black;}
+    </style>
     <h1>Welcome to your Todo List!</h1>
     <h2>To add new tasks, please fill in the details below, and click on add task!</h2>
   </head>
@@ -13,11 +18,12 @@
         Task Name: <input placeholder="enter the name" v-model="task.taskName"></br>
         Task Description: <input placeholder="enter the description" v-model="task.taskDesc"></br>
         Task Deadline: <input placeholder="enter the deadline" v-model="task.deadline"></br>
-        <button @click="addTask" type='button'>Add Task!</button>
+        Remind me in: <button @click="alertOne" type='button'>One Second</button></br></br>
+        <button @click="addTask" type='button'>Add Task!</button> </br></br>
       </form>
       <ul>
         <li v-for="task in tasks">
-          Name: {{ task.taskName }} </br> Description: {{ task.taskDesc }} </br> Deadline: {{ task.deadline }}
+          Name: {{ task.taskName }} </br> Description: {{ task.taskDesc }} </br> Deadline: {{ task.deadline }} </br>
       </li>
     </ul>
     </div>
