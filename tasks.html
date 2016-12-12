@@ -5,15 +5,33 @@
     <title>To Do List!</title>
         <script src="vue.js"></script>
         <style>
+        .center {
+          margin: auto;
+          width: 60%;
+          border: 3px solid;
+          padding: 10px;
+          text-align: center;
+        }
         body{
-              background-image: url("http://www.timvandevall.com/wp-content/uploads/2013/10/Printable-Notebook-Paper-04.jpg");
-              color: black;}
-    </style>
+          background-color: lightblue;
+          color: black;
+        }
+        h1{
+          background-color: black;
+          color: lightblue;
+          text-align: center;
+        }
+        h2{
+          background-color: black;
+          color: lightblue;
+          text-align: center;
+        }
+        </style>
     <h1>Welcome to your Todo List!</h1>
     <h2>To add new tasks, please fill in the details below, and click on add task!</h2>
   </head>
   <body>
-    <div id="app">
+    <div  class = "center" id="app">
       <form>
         Task Name: <input placeholder="enter the name" v-model="task.taskName"></br>
         Task Description: <input placeholder="enter the description" v-model="task.taskDesc"></br>
@@ -21,11 +39,11 @@
         Remind me in: <button @click="alertOne" type='button'>One Second</button></br></br>
         <button @click="addTask" type='button'>Add Task!</button> </br></br>
       </form>
-      <ul>
+
         <li v-for="task in tasks">
-          Name: {{ task.taskName }} </br> Description: {{ task.taskDesc }} </br> Deadline: {{ task.deadline }} </br>
+          Name: {{ task.taskName }} </br> Description: {{ task.taskDesc }} </br> Deadline: {{ task.deadline }} </br></br></br>
       </li>
-    </ul>
+
     </div>
 </div>
   <script src="tasks.js"></script>
