@@ -2,8 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>To Do List!</title>
     <script src="vue.js"></script>
+    <h1>Welcome to your Todo List!</h1>
+    <h2>To add new tasks, please fill in the details below, and click on add task!</h2>
   </head>
   <body>
     <div id="app">
@@ -11,19 +13,15 @@
         Task Name: <input placeholder="enter the name" v-model="task.taskName"></br>
         Task Description: <input placeholder="enter the description" v-model="task.taskDesc"></br>
         Task Deadline: <input placeholder="enter the deadline" v-model="task.deadline"></br>
-        <button @click="addTask" type='button'>Submit</button>
+        <button @click="addTask" type='button'>Add Task!</button>
       </form>
       <ul>
-
         <li v-for="task in tasks">
-          {{ task.taskName }}  {{ task.taskDesc }}  {{ task.deadline }}
+          Name: {{ task.taskName }} </br> Description: {{ task.taskDesc }} </br> Deadline: {{ task.deadline }}
       </li>
     </ul>
-      
-
     </div>
-
 </div>
-<script src="tasks.js"></script>
+  <script src="tasks.js"></script>
   </body>
 </html>
