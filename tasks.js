@@ -1,3 +1,4 @@
+var timeoutID;
 new Vue ({
   el: '#app',
   data:
@@ -10,12 +11,17 @@ new Vue ({
   ]},
 
   methods:
-  {
+    {
     addTask: function(){
     //  alert("hello " + this.task.taskName + " " + this.task.taskDesc + " " + this.task.deadline);
       this.tasks.push(this.task);
       this.task = { taskName: '', taskDesc: '', deadline: ''};
-
+    },
+    alertOne: function(){
+      timeoutID = window.setTimeout(slowAlert, 2000);
+    },
+    slowAlert: function(){
+      alert("Reminder for this.task.taskName");
     }
   }
 
